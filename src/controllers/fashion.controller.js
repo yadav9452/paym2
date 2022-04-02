@@ -11,16 +11,16 @@ router.post("", async (req, res) => {
     res.send({ message: error.message });
   }
 });
-router.get("/", async (req, res) => {
-  try {
-    console.log("brand", req.query.brand);
-    // console.log("b", req.query.brand);
-    const fashions = await Fashion.findAll(req.query.q).lean().exec();
-    res.send(fashions);
-  } catch (error) {
-    res.send({ message: error.message });
-  }
-});   
+// router.get("/", async (req, res) => {
+//   try {
+//     console.log("brand", req.query.brand);
+//     // console.log("b", req.query.brand);
+//     const fashions = await Fashion.findAll(req.query.q).lean().exec();
+//     res.send(fashions);
+//   } catch (error) {
+//     res.send({ message: error.message });
+//   }
+// });   
 router.get("", async (req, res) => {   //working
   try {
     const fashions = await Fashion.find({}).lean().exec();
